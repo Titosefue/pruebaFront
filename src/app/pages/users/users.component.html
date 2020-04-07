@@ -1,0 +1,70 @@
+<div class="title">
+  <h2>{{label.title}}</h2>
+  {{label.textTitle}}
+  <button class='btn btnAddUser'>
+    <img src="../../../assets/addcolor.svg" class="imgBtn">
+    <div class="textBtn">{{label.addUser}}</div>
+  </button>
+  <button class='btn btnPreview'>
+    <img src="../../../assets/eyecolor.svg" class="imgBtn">
+    <div class="textBtn">{{label.preview}}</div>
+  </button>
+</div>
+<div class="content">
+  <div class="filter">
+    <input placeholder="{{label.search}} |" class="required">
+    <select id="pages">
+      <option value="8">{{label.option1}}</option>
+      <option value="12">{{label.option2}}</option>
+      <option value="16">{{label.option3}}</option>
+      <option value="20">{{label.option4}}</option>
+    </select>
+    <select id="order">
+      <option value="asc">{{label.asc}}</option>
+      <option value="desc">{{label.desc}}</option>
+    </select>
+    <select id="all">
+      <option value="all">{{label.all}}</option>
+      <option value="nothing">{{label.middle}}</option>
+    </select> 
+    <div class="btns">   
+      <button class='btnView'>
+        <img src="../../../assets/listcolor.svg">
+      </button>
+      <button class='btnView'>
+        <img src="../../../assets/square.svg">
+      </button>
+    </div>
+  </div>
+  <div class="list_users" *ngIf="flagUsers">
+    <table>
+      <tr>
+        <th></th>
+        <th>{{label.photo}}</th>
+        <th>{{label.name}}</th>
+        <th>{{label.fathersLastName}}</th>
+        <th>{{label.mothersLastName}}</th>
+        <th>{{label.email}}</th>
+        <th>{{label.roleId}}</th>
+        <th>{{label.active}}</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let user of users.users; let indexPosition = index">
+        <td>
+          <img src="../../../assets/points.svg">
+        </td>
+        <td>
+          <img src="{{user.picture}}" class="userImg">
+        </td>
+        <td>{{user.name}}</td>
+        <td>{{user.fathersLastName}}</td>
+        <td>{{user.mothersLastName}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.roleId}}</td>
+        <td>{{user.active}}</td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+</div>

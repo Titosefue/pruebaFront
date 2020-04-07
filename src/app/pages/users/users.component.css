@@ -1,0 +1,144 @@
+.title{
+    height: 120px;
+    background-color: white;
+    margin: 2%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 1%;
+    color: rgb(189, 189, 189);
+}
+
+h2{
+    color: black;
+}
+
+.btn {
+    padding: 10px;
+    margin: 20px;
+    float: right;
+    margin-top: -4%;
+    width: auto;
+}
+
+.btnAddUser{
+    background-color: rgb(250, 106, 0);
+    border: 2px solid white;
+    border-radius: 4%;
+    color: white;   
+    font-weight: bold;
+    text-align: center;
+}
+
+.btnPreview{
+    border: 2px solid rgb(250, 106, 0);
+    background-color: white;
+    border-radius: 4%;
+    color: rgb(250, 106, 0);
+}
+
+.imgBtn{
+    float: left;
+}
+
+.textBtn{
+    float: right;
+    margin: 6px;
+}
+
+.content{
+    height: auto;
+    overflow: auto;
+    background-color: white;
+    margin: 2%;    
+    padding-top: 1%;
+    color: rgb(189, 189, 189);
+}
+
+.filter{
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 1%;
+}
+
+input{
+    display: inline;
+    border: none;
+    border: 1px solid #ccc;
+    width: 30%;
+    padding: 1.3%;
+    background-color: rgb(249, 249, 249);
+    padding-left: 3%;
+    background-image: url(../../../assets/searchcolor.svg);
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    text-indent: 4px;
+}
+
+/* ::placeholder{
+    color: rgb(250, 106, 0);
+} */
+
+select{
+    text-align: center;
+    display: inline; 
+    margin: 1%;
+    padding: 1.3%;
+    background-color: rgb(249, 249, 249);
+    color: rgb(123, 123, 123);
+}
+
+#pages{
+    margin-left: 18%;
+}
+
+.btnView{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    margin: 5px;
+    margin-top: 20px;
+}
+
+.btns{
+    margin-left: 0.1%;
+    float: right;
+}
+
+.btnView img{
+    width: 30px;
+}
+
+.list_users{
+    margin: 0em;
+}
+
+table{
+  margin: 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+    border-top: 1px solid #dddddd;
+    text-align: left;
+    padding: 20px;
+    color: black;
+    font-weight: bold;
+}
+
+td {
+    border-top: 1px solid #dddddd;
+    text-align: left;
+    color: black;
+    padding: 10px;
+}
+
+tr:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+.userImg {
+  border-radius: 50%;
+  width: 40px;
+}
