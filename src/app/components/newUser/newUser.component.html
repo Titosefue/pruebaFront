@@ -1,0 +1,18 @@
+<div class="content">
+  <h2>{{label.addUser}}</h2>
+  <h3>{{label.photoProfile}}</h3>
+  <div class="groupPhoto">
+    <div class="circleSquare">
+      <img src="../../../../../assets/user.svg" class="userImg">
+    </div>
+    <div class="textPhoto">
+      {{label.textPhoto}} <br>
+      <button class='btnAction btnSave'>{{label.uploadPhoto}}</button>
+    </div>
+  </div>
+
+  <div class="groupBtn">
+    <button class='btnAction btnSave'>{{label.saveUser}}</button>
+    <button class='btnAction btnCancelar' (click)='cancelar()'>{{label.cancelar}}</button>
+  </div>
+</div>

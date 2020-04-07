@@ -1,0 +1,63 @@
+.content{
+  background-color: #fefefe;
+  margin: auto;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 60%;
+}
+
+.btnAction{
+    padding: 20px;
+    margin: 30px;
+    float: right;
+    width: auto;
+    border-radius: 7%;
+    border: 2px solid white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btnSave{
+    background-color: rgb(250, 106, 0);
+    color: white;   
+}
+
+.btnCancelar{
+    color: rgb(250, 106, 0);
+    background-color: white;
+}
+
+.groupPhoto{
+    display: block;
+    height: 100px;
+}
+
+.circleSquare{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+    text-align: center;
+    left: 25%;
+    margin: 10px;
+    background-color: rgb(189, 189, 189);
+    float: left;
+}
+  
+.circleSquare img{
+    width: 50%;
+    height: 50%;
+    margin-top: 20%;
+    text-align: center;
+}
+
+.textPhoto{
+    float: right;
+    text-align: left;
+}
+
+.groupBtn{
+    display: block;
+    height: 100px;
+}

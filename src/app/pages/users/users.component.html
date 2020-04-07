@@ -1,7 +1,7 @@
 <div class="title">
   <h2>{{label.title}}</h2>
   {{label.textTitle}}
-  <button class='btn btnAddUser'>
+  <button (click)="addUser()" class='btn btnAddUser'>
     <img src="../../../assets/addcolor.svg" class="imgBtn">
     <div class="textBtn">{{label.addUser}}</div>
   </button>
@@ -108,5 +108,7 @@
       </div>
     </div>
   </div>
-
+</div>
+<div #modalUser class="modalUser">
+  <app-newUser (flagModal)="cancelarModal($event)"></app-newUser>
 </div>

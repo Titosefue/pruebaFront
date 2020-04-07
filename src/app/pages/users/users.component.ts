@@ -16,17 +16,20 @@ export class UsersComponent implements OnInit {
 
   @ViewChild("listBtn", {static: false}) listBtn: any;
   @ViewChild("squareBtn", {static: false}) squareBtn: any;
+  @ViewChild("modalUser", {static: false}) modalUser: any;
 
   public typeView: string;
   public label: Object;
   public profile: Profile;
   public users: User;
+  public flagModal: boolean;
 
 
   constructor(
     private userProvider: UserProvider,
   ) {
     this.label = UsersLabel;
+    this.flagModal = false;
   }
   
   public async ngOnInit() {
@@ -75,6 +78,17 @@ export class UsersComponent implements OnInit {
       this.listBtn.nativeElement.src  = "../../../assets/listcolor.svg";
       this.squareBtn.nativeElement.src  = "../../../assets/square.svg";
       this.typeView = 'list';
+    }
+  }
+
+  public addUser(): void{
+    this.flagModal = true;
+    this.modalUser.nativeElement.setAttribute('style', 'display: block;');
+  }
+
+  public cancelarModal(flag: boolean): void{
+    if (!flag){
+      this.modalUser.nativeElement.setAttribute('style', 'display: none;');
     }
   }
 
