@@ -32,14 +32,19 @@ export class UsersComponent implements OnInit {
     this.flagModal = false;
   }
   
+  /**
+   * @description Get data json of user and profile
+   */
   public async ngOnInit() {
     this.users = await this.userProvider.getUsers();
     this.profile = await this.userProvider.getProfile();
     this.getProfile();
     this.typeView = 'list';
-    // this.flagUsers = true;
   }
-  
+
+  /**
+   * @description Set type profile of the user
+   */
   public getProfile(): void {
     _.forEach(this.users.users, (user, index) => {
       if (user.active) {
@@ -55,6 +60,10 @@ export class UsersComponent implements OnInit {
     });
   }
 
+  /**
+   * @description Change status of the user
+   * @param {number} index Index to change
+   */
   public changeStatus(index: number): void{
     var active = this.users.users[index].active;
     this.users.users[index].active = !active;
@@ -65,10 +74,18 @@ export class UsersComponent implements OnInit {
     }
   }
 
+  /**
+   * @description Delete user
+   * @param {number} index Index to delete
+   */
   public deleteItem(index: number): void{
     delete this.users.users[index];
   }
 
+  /**
+   * @description Change of view's mode
+   * @param {string} type View selected
+   */
   public viewUsers(type: string): void{
     if(type === 'square') {
       this.listBtn.nativeElement.src  = "../../../assets/list.svg";
@@ -81,11 +98,18 @@ export class UsersComponent implements OnInit {
     }
   }
 
+  /**
+   * @description Event for show the modal
+   */
   public addUser(): void{
     this.flagModal = true;
     this.modalUser.nativeElement.setAttribute('style', 'display: block;');
   }
 
+  /**
+   * @description Event for hidden the modal
+   * @param {boolean} flag Flag of the modal
+   */
   public cancelarModal(flag: boolean): void{
     if (!flag){
       this.modalUser.nativeElement.setAttribute('style', 'display: none;');

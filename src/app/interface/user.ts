@@ -1,3 +1,6 @@
+/**
+ * @description Interface of the users
+ */
 export interface User {
     users:{
         picture: string;
