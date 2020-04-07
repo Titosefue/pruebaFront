@@ -1,8 +1,11 @@
 export interface User {
-    picture: string;
-    fathersLastName: string;
-    mothersLastName: string;
-    email: string;
-    roleId: string;
-    active: Boolean;
+    users:{
+        picture: string;
+        fathersLastName: string;
+        mothersLastName: string;
+        email: string;
+        roleId: string;
+        active: Boolean;
+        imgActive?: String;
+    }
 }

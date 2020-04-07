@@ -29,14 +29,14 @@
     </select> 
     <div class="btns">   
       <button class='btnView'>
-        <img src="../../../assets/listcolor.svg">
+        <img (click)='viewUsers("list")' #listBtn src="../../../assets/listcolor.svg">
       </button>
       <button class='btnView'>
-        <img src="../../../assets/square.svg">
+        <img (click)='viewUsers("square")' #squareBtn src="../../../assets/square.svg">
       </button>
     </div>
   </div>
-  <div class="list_users" *ngIf="flagUsers">
+  <div class="list_users" *ngIf="typeView==='list'">
     <table>
       <tr>
         <th></th>
@@ -50,21 +50,63 @@
         <th></th>
       </tr>
       <tr *ngFor="let user of users.users; let indexPosition = index">
-        <td>
+        <td *ngIf="user">
           <img src="../../../assets/points.svg">
         </td>
-        <td>
-          <img src="{{user.picture}}" class="userImg">
+        <td *ngIf="user">
+          <div class="circletag">
+            <img src="{{user.picture}}" class="userImg">
+          </div>
         </td>
-        <td>{{user.name}}</td>
-        <td>{{user.fathersLastName}}</td>
-        <td>{{user.mothersLastName}}</td>
-        <td>{{user.email}}</td>
-        <td>{{user.roleId}}</td>
-        <td>{{user.active}}</td>
-        <td></td>
+        <td *ngIf="user">{{user.name}}</td>
+        <td *ngIf="user">{{user.fathersLastName}}</td>
+        <td *ngIf="user">{{user.mothersLastName}}</td>
+        <td *ngIf="user">{{(user.email.length>25)? (user.email | slice:0:25)+'..':(user.email)}}</td>
+        <td *ngIf="user">{{user.roleId}}</td>
+        <td *ngIf="user">
+          <img class="btnActive" (click)="changeStatus(indexPosition)" [ngClass]="{buttonInactive:!user.active}" src="{{user.imgActive}}">
+        </td>
+        <td *ngIf="user">  
+          <div>
+            <button class='btnAction'>
+              <img src="../../../assets/web.svg">
+            </button>
+            <button class='btnAction'>
+              <img (click)="deleteItem(indexPosition)" src="../../../assets/trash.svg">
+            </button>
+          </div>
+        </td>
       </tr>
     </table>
+  </div>
+  <div class="square_users" *ngIf="typeView==='square'">
+    <div *ngFor="let user of users.users; let indexPosition = index" class="squareFor">
+      <div class="square" *ngIf="user">
+        <div class="pointsSquare">
+          <img src="../../../assets/points.svg">
+        </div>
+        <div class="circleSquare">
+          <img src="{{user.picture}}" class="userImg">
+        </div>
+        <span id='username'>{{user.name}}</span>
+          {{(user.email.length>25)? (user.email | slice:0:25)+'..':(user.email)}}<br>
+          {{user.roleId}}
+        <hr>
+        <div class="footerSquare">
+          <div class="blockActive">
+            <img class="btnActive" (click)="changeStatus(indexPosition)" [ngClass]="{buttonInactive:!user.active}" src="{{user.imgActive}}">
+          </div>
+          <div class="blockAction">
+            <button class='btnAction'>
+              <img src="../../../assets/web.svg">
+            </button>
+            <button class='btnAction'>
+              <img (click)="deleteItem(indexPosition)" src="../../../assets/trash.svg">
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 </div>

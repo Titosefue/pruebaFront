@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Pipe, PipeTransform } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { Profile } from '../../interface/profile';
 import { User } from '../../interface/user';
@@ -15,37 +14,68 @@ import * as _ from 'lodash';
 })
 export class UsersComponent implements OnInit {
 
-  public flagUsers: Boolean;
+  @ViewChild("listBtn", {static: false}) listBtn: any;
+  @ViewChild("squareBtn", {static: false}) squareBtn: any;
+
+  public typeView: string;
   public label: Object;
   public profile: Profile;
   public users: User;
+
 
   constructor(
     private userProvider: UserProvider,
   ) {
     this.label = UsersLabel;
-    this.flagUsers = false;
   }
-
-  async ngOnInit() {
+  
+  public async ngOnInit() {
     this.users = await this.userProvider.getUsers();
     this.profile = await this.userProvider.getProfile();
-    setTimeout(this.getProfile, 10000);
-    this.flagUsers = true;
-    console.log(this.users, this.profile );
+    this.getProfile();
+    this.typeView = 'list';
+    // this.flagUsers = true;
   }
   
   public getProfile(): void {
-    console.log('dsafsdfads', this.users)
-    _.forEach(this.users, user => {
-      console.log('sadasfasfasd')
-      _.forEach(this.profile, profile => {
-        console.log('entrooo', profile.id, user.profile)
-        if (profile.id === user.profile) {
-          console.log(profile.id, user.profile, profile.position)
+    _.forEach(this.users.users, (user, index) => {
+      if (user.active) {
+        user.imgActive = '../../../assets/toggle_on.svg';
+      } else {
+        user.imgActive = '../../../assets/toggle_off.svg';
+      }
+      _.forEach(this.profile.roles, profile => {
+        if (profile.id === user.roleId) {
+          this.users.users[index].roleId = profile.position;
         }
       });
     });
+  }
+
+  public changeStatus(index: number): void{
+    var active = this.users.users[index].active;
+    this.users.users[index].active = !active;
+    if (!active) {
+      this.users.users[index].imgActive = '../../../assets/toggle_on.svg';
+    } else {
+      this.users.users[index].imgActive = '../../../assets/toggle_off.svg';
+    }
+  }
+
+  public deleteItem(index: number): void{
+    delete this.users.users[index];
+  }
+
+  public viewUsers(type: string): void{
+    if(type === 'square') {
+      this.listBtn.nativeElement.src  = "../../../assets/list.svg";
+      this.squareBtn.nativeElement.src  = "../../../assets/squarecolor.svg";
+      this.typeView = 'square';
+    } else {
+      this.listBtn.nativeElement.src  = "../../../assets/listcolor.svg";
+      this.squareBtn.nativeElement.src  = "../../../assets/square.svg";
+      this.typeView = 'list';
+    }
   }
 
 }

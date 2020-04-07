@@ -1,4 +1,6 @@
 export interface Profile {
-    id: number;
-    position: string;
+    roles: {
+        id: number;
+        position: string;
+    }
 }
